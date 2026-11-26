@@ -22,6 +22,7 @@ concurrency:
 jobs:
   cards:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
 
@@ -37,6 +38,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PREV_DATA: ${{ runner.temp }}/prev.json
+
+      # The README points straight at these files, so never publish a partial set:
+      # if anything is missing, the previous output branch stays live.
+      - name: Check every card was drawn
+        working-directory: dist
+        run: |
+          for f in calendar stats recent; do
+            for t in light dark; do
+              test -s "$f-$t.svg" || { echo "missing $f-$t.svg"; exit 1; }
+              grep -q "<svg" "$f-$t.svg" || { echo "not an SVG: $f-$t.svg"; exit 1; }
+            done
+          done
+          test -s boj.json && test -s data.json
 
       - name: Publish to the output branch
         working-directory: dist
