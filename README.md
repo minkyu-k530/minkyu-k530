@@ -34,7 +34,7 @@ When a teammate gets stuck on an error, I want to be the person they ask first.
 
 | Project | What it is |
 | --- | --- |
-| **Server Room Simulator** | A 3D server room game where you live through power and disk failures. The server runs every rule in a 100 ms tick, and cutting the worst tick from **537 ms to 28.7 ms** with 100 players kept it there. |
+| **[Server Room Simulator](https://github.com/minkyu-k530/server-simulator-monorepository)** | A 3D server room game where you live through power and disk failures. The server runs every rule in a 100 ms tick, and cutting the worst tick from **537 ms to 28.7 ms** with 100 players kept it there. |
 | **SKALA FPS** | A fast browser FPS on three.js with no build step, made as a team. |
 | **[FinMATE](https://github.com/oh-my-finance/omf-frontend)** | A learning service for investing, from how the market works to derivatives. Profile grades come from a rule engine, not an LLM. |
 | **tradingBot** | An ETF trading bot on a broker's Open API. Limit orders only, a daily loss stop and a kill switch. |
